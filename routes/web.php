@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,10 +13,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [FrontController::class, 'homepage'])->name('homepage');
+Route::get('detail', [FrontController::class, 'detail'])->name('detail');
 
 Auth::routes(['register' => false]);
 
